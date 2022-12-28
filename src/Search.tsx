@@ -1,5 +1,6 @@
-import React from "react";
-
+import React, { ChangeEvent } from "react";
+import { Link } from "react-router-dom";
+import { serialize } from "v8";
 function Search() {
   const dummy_stations = [
     { name: "삼전", code: "123", line: [2], inner: true },
@@ -14,13 +15,19 @@ function Search() {
     return station.name.includes(search);
   });
 
+  function handleTextInput(e: ChangeEvent<HTMLInputElement>) {
+    setSearch(e.target.value);
+  }
+  console.log(search);
   return (
     <div>
-      <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+      <input type="text" value={search} onChange={handleTextInput} />
       {search && (
         <ul>
           {filterdStations.map((station) => (
-            <li key={station.code}>{station.name}</li>
+            <li key={station.code}>
+              <Link to={"/toilet/" + station.code}>{station.name}</Link>
+            </li>
           ))}
         </ul>
       )}
