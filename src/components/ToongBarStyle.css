@@ -1,0 +1,88 @@
+.ToongBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    width: 95%;
+    height: 80px;
+    border-radius: 13px;
+}
+
+.ToongBar-Logo {
+
+    color: #222;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.ToongBar-menu {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-gap: 30px;
+    list-style: none;
+    align-items: center;
+}
+
+.SearchBar {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+.BarLink i {
+    text-decoration: none;
+    color: #222;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.7rem, 1rem;
+}
+
+.BarLink:hover {
+    color: #61dafb;
+    border-radius: 4px;
+    transition: all 0.25s ease-in-out;
+}
+
+
+@media screen and (max-width: 720px) {
+    .ToongItems {
+        z-index: 99;
+    }
+
+    .ToongBar-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: white;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        opacity: 0;
+        padding: 80px 0 30px 0;
+        margin: 0;
+        z-index: -1;
+    }
+}
+
+.ToongBar-menu.active {
+    left: 0;
+    opacity: 1;
+    z-index: -1;
+
+
+}
+
+.BarLink {
+    display: inline;
+    width: 100%;
+    font-size: 1rem;
+    padding: 2rem 0;
+}
+
+.BarLink:hover {
+    background: #61dafb;
+    transition: none;
+}
