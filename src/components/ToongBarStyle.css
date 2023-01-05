@@ -71,8 +71,7 @@
     left: 0;
     opacity: 1;
     z-index: -1;
-
-
+    border: 1px solid;
 }
 
 .BarLink {
@@ -85,4 +84,17 @@
 .BarLink:hover {
     background: #61dafb;
     transition: none;
+}
+
+.search {
+    position: relative;
+}
+
+.stations_list {
+    position: absolute;
+    list-style: none;
+    background: white;
+    width:100%;
+    border: 1px solid black;
+    padding:5px;
 }

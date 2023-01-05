@@ -26,13 +26,13 @@ function Search() {
   }
 
   return (
-    <div>
+    <div className="search">
       <div className="hero">
         <div className="left-h"></div>
       </div>
       <input className="SearchBar" type="text" value={search} onChange={handleTextInput} />
       {search && (
-        <ul>
+        <ul className="stations_list">
           {filterdStations.map((station: Metro) => (
             <li key={station.stinCd}>
               <Link to={"/toilet/" + station.stinCd}>{station.stinNm}</Link>
