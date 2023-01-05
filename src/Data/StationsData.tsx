@@ -1,7 +1,7 @@
 import Metro from "../Model/Metro";
 import axios from "axios";
 
-let stations: Metro[] = [];
+const stations: Metro[] = [];
 
 axios
   .get("http://localhost:8080/metro/station")
