@@ -1,13 +1,13 @@
 import Metro from "../Model/Metro";
 import axios from "axios";
 
-const stations: Metro[] = [];
+const stations: { [id: string]: Metro } = {};
 
 axios
   .get("http://localhost:8080/metro/station")
   .then((response) => {
     for (const station of response.data.body) {
-      stations.push(station);
+      stations[station.stinCd] = station as Metro;
     }
   })
   .catch((error) => console.log(error));

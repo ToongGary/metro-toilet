@@ -19,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={[<ToongBar />,]} />
           <Route path="/toilet/:id" element={<ToiletInfo />} />
+          <Route path="/toilet_between/:id1/:id2" element={<ToiletInfo />} />
         </Routes>
 
       </BrowserRouter>
