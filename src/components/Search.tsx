@@ -1,11 +1,11 @@
 import React, { MouseEvent } from "react";
-import { useNavigate } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import "./ToongBarStyle.css";
+import stations from "../Data/StationsData";
 
-function Search() {
+function Search(props: any) {
   const [visibility, setVisibility] = React.useState(false);
-  const navigate = useNavigate();
+  const [stationName, setStationName] = React.useState(props.defaultText);
 
   function handleSearchClicked(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
@@ -17,13 +17,15 @@ function Search() {
   }
 
   function handleSelected(stationCode: string) {
-    navigate("/toilet/" + stationCode);
+    setStationName(stations[stationCode].stinNm);
+    props.onSelected(stationCode);
+    setVisibility(false);
   }
 
   return (
     <div className="search">
       <a href="#" className="search_button" onClick={handleSearchClicked}>
-        역 검색
+        {stationName}
       </a>
       <SearchBox onClose={handleSearchBoxClose} visibility={visibility} onSelected={handleSelected} />
     </div>
