@@ -16,9 +16,9 @@ function Search(props: any) {
     setVisibility(false);
   }
 
-  function handleSelected(stationCode: string) {
-    setStationName(stations[stationCode].stinNm);
-    props.onSelected(stationCode);
+  function handleSelected(stationId: string) {
+    setStationName(stations[stationId].stationName);
+    props.onSelected(stationId);
     setVisibility(false);
   }
 

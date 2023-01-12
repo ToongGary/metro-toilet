@@ -10,8 +10,9 @@ import "./ToongBarStyle.css";
 function SearchBox(props: any) {
   const [search, setSearch] = React.useState("");
 
+  // console.log(stations);
   const filterdStations = Object.values(stations).filter((station: Metro) => {
-    return station.stinNm.includes(search);
+    return station.stationName.includes(search);
   });
 
   function handleTextInput(e: ChangeEvent<HTMLInputElement>) {
@@ -36,8 +37,8 @@ function SearchBox(props: any) {
       {search && (
         <ul className="stations_list">
           {filterdStations.map((station: Metro) => (
-            <li className="stations_list_item" key={station.stinCd} data-code={station.stinCd} onClick={handleStationSelected}>
-              {station.stinNm}
+            <li className="stations_list_item" key={station.id} data-code={station.id} onClick={handleStationSelected}>
+              {station.stationName}
             </li>
           ))}
         </ul>

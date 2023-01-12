@@ -6,16 +6,16 @@ import React from "react";
 
 const ToongBar = () => {
   const navigate = useNavigate();
-  function handleSearchSelected(stationCode: string) {
-    navigate("/toilet/" + stationCode);
+  function handleSearchSelected(stationId: string) {
+    navigate("/toilet/" + stationId);
   }
 
-  function handleSourceSelected(stationCode: string) {
-    setSource(stationCode);
+  function handleSourceSelected(stationId: string) {
+    setSource(stationId);
   }
 
-  function handleDestinationSelected(stationCode: string) {
-    setDestination(stationCode);
+  function handleDestinationSelected(stationId: string) {
+    setDestination(stationId);
   }
 
   function handleSearchClicked(e: React.MouseEvent<HTMLButtonElement>) {
