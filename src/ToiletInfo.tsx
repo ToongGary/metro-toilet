@@ -1,7 +1,12 @@
-import React from "react";
+import React from 'react';
 
 function ToiletInfo() {
-  const dummy_stations = { name: "삼전", code: "123", line: [2], location: "출구옆어딘가" };
+  const dummy_stations = {
+    name: '삼전',
+    code: '123',
+    line: [2],
+    location: '출구옆어딘가'
+  };
 
   return (
     <div>

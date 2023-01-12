@@ -1,13 +1,13 @@
-import "./ToongBarStyle.css";
-import Search from "./Search";
-import { ToongItem } from "./ToongItem";
-import { useNavigate } from "react-router-dom";
-import React from "react";
+import './ToongBarStyle.css';
+import Search from './Search';
+import { ToongItem } from './ToongItem';
+import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
 const ToongBar = () => {
   const navigate = useNavigate();
   function handleSearchSelected(stationId: string) {
-    navigate("/toilet/" + stationId);
+    navigate('/toilet/' + stationId);
   }
 
   function handleSourceSelected(stationId: string) {
@@ -20,16 +20,16 @@ const ToongBar = () => {
 
   function handleSearchClicked(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    if (source === "" || destination === "") {
-      alert("출발역과 도착역을 선택해주세요.");
+    if (source === '' || destination === '') {
+      alert('출발역과 도착역을 선택해주세요.');
       return;
     } else {
-      navigate("/toilet_between/" + source + "/" + destination);
+      navigate('/toilet_between/' + source + '/' + destination);
     }
   }
 
-  const [source, setSource] = React.useState("");
-  const [destination, setDestination] = React.useState("");
+  const [source, setSource] = React.useState('');
+  const [destination, setDestination] = React.useState('');
 
   return (
     <nav className="ToongBar">

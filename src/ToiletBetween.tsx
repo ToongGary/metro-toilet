@@ -1,5 +1,5 @@
-import React from "react";
-import ToongBar from "./components/ToongBar";
+import React from 'react';
+import ToongBar from './components/ToongBar';
 
 function ToiletBetween() {
   return (

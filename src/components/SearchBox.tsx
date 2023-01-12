@@ -1,14 +1,14 @@
-import React, { ChangeEvent, MouseEvent } from "react";
-import { Link } from "react-router-dom";
-import { Component } from "react";
-import { serialize } from "v8";
-import { render } from "@testing-library/react";
-import stations from "../Data/StationsData";
-import Metro from "../Model/Metro";
-import "./ToongBarStyle.css";
+import React, { ChangeEvent, MouseEvent } from 'react';
+import { Link } from 'react-router-dom';
+import { Component } from 'react';
+import { serialize } from 'v8';
+import { render } from '@testing-library/react';
+import stations from '../Data/StationsData';
+import Metro from '../Model/Metro';
+import './ToongBarStyle.css';
 
 function SearchBox(props: any) {
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState('');
 
   // console.log(stations);
   const filterdStations = Object.values(stations).filter((station: Metro) => {
@@ -28,8 +28,13 @@ function SearchBox(props: any) {
   };
 
   return (
-    <div className={"search_box" + (props.visibility ? "" : " hidden")}>
-      <input className="SearchBar" type="text" value={search} onChange={handleTextInput} />
+    <div className={'search_box' + (props.visibility ? '' : ' hidden')}>
+      <input
+        className="SearchBar"
+        type="text"
+        value={search}
+        onChange={handleTextInput}
+      />
       <a href="#" onClick={props.onClose} className="close_button">
         X
       </a>
@@ -37,7 +42,12 @@ function SearchBox(props: any) {
       {search && (
         <ul className="stations_list">
           {filterdStations.map((station: Metro) => (
-            <li className="stations_list_item" key={station.id} data-code={station.id} onClick={handleStationSelected}>
+            <li
+              className="stations_list_item"
+              key={station.id}
+              data-code={station.id}
+              onClick={handleStationSelected}
+            >
               {station.stationName}
             </li>
           ))}

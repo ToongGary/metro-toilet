@@ -1,7 +1,7 @@
-import React, { MouseEvent } from "react";
-import SearchBox from "./SearchBox";
-import "./ToongBarStyle.css";
-import stations from "../Data/StationsData";
+import React, { MouseEvent } from 'react';
+import SearchBox from './SearchBox';
+import './ToongBarStyle.css';
+import stations from '../Data/StationsData';
 
 function Search(props: any) {
   const [visibility, setVisibility] = React.useState(false);
@@ -27,7 +27,11 @@ function Search(props: any) {
       <a href="#" className="search_button" onClick={handleSearchClicked}>
         {stationName}
       </a>
-      <SearchBox onClose={handleSearchBoxClose} visibility={visibility} onSelected={handleSelected} />
+      <SearchBox
+        onClose={handleSearchBoxClose}
+        visibility={visibility}
+        onSelected={handleSelected}
+      />
     </div>
   );
 }
