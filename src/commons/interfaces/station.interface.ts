@@ -1,4 +1,4 @@
-export default interface Metro {
+export interface Station {
   id: number;
   lineCode: string;
   lineName: string;
