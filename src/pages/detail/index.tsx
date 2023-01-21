@@ -1,6 +1,4 @@
-import React from 'react';
-
-function ToiletInfo() {
+export function Detail() {
   const dummy_stations = {
     name: '삼전',
     code: '123',
@@ -15,5 +13,3 @@ function ToiletInfo() {
     </div>
   );
 }
-
-export default ToiletInfo;
