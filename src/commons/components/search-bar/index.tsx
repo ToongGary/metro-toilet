@@ -1,11 +1,13 @@
-import './ToongBarStyle.css';
-import Search from './Search';
-import { ToongItem } from './ToongItem';
+import './style.css';
+import { SearchInput } from './search-input';
 import { useNavigate } from 'react-router-dom';
-import React from 'react';
 
-const ToongBar = () => {
+import React from 'react';
+import { SearchOptions } from './search-options';
+
+export function SearchBar() {
   const navigate = useNavigate();
+
   function handleSearchSelected(stationId: string) {
     navigate('/toilet/' + stationId);
   }
@@ -32,15 +34,17 @@ const ToongBar = () => {
   const [destination, setDestination] = React.useState('');
 
   return (
-    <nav className="ToongBar">
-      <h1 className="ToongBar-logo"> 급 퉁 </h1>
-
-      <ul className="ToongBar-menu">
-        <Search onSelected={handleSearchSelected} defaultText="역 선택" />
-        <Search onSelected={handleSourceSelected} defaultText="출발역" />
-        <Search onSelected={handleDestinationSelected} defaultText="도착역" />
+    <nav className="search-bar">
+      <h1 className="search-bar-logo"> 급 퉁 </h1>
+      <ul className="search-bar-menu">
+        <SearchInput onSelected={handleSearchSelected} defaultText="역 선택" />
+        <SearchInput onSelected={handleSourceSelected} defaultText="출발역" />
+        <SearchInput
+          onSelected={handleDestinationSelected}
+          defaultText="도착역"
+        />
         <button onClick={handleSearchClicked}>경로상 화장실 검색</button>
-        {ToongItem.map((item, index) => {
+        {SearchOptions.map((item, index) => {
           return (
             <li key={index}>
               <a className={item.cName} href="/">
@@ -53,6 +57,4 @@ const ToongBar = () => {
       </ul>
     </nav>
   );
-};
-
-export default ToongBar;
+}
