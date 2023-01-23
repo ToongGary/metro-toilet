@@ -18,9 +18,9 @@ export function SearchInput(props: any) {
   }
 
   function handleSelected(stationId: string) {
-    setStationName(stations[stationId].stationName);
-    props.onSelected(stationId);
-    setVisibility(false);
+    // setStationName(stations[stationId].stationName);
+    // props.onSelected(stationId);
+    // setVisibility(false);
   }
 
   return (

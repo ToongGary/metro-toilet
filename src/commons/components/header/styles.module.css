@@ -14,6 +14,7 @@
 .search-form {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .search-form label {
@@ -26,6 +27,33 @@
   padding: 10px 15px;
   box-sizing: content-box;
   outline: none;
+}
+
+.search-form .search-result {
+  position: absolute;
+  left: 0;
+  top: 64px;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.search-form .search-result > div:first-child {
+  border-top: 1px solid #e5e5e5;
+}
+
+.search-form .search-result > div {
+  cursor: pointer;
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+  padding: 15px;
+  background-color: #fff;
+  width: 300px;
+  transition: 0.2s;
+}
+
+.search-form .search-result > div:hover {
+  background-color: #f3f3f3;
 }
 
 .region-form {
