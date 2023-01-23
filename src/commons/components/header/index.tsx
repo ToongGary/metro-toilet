@@ -1,4 +1,5 @@
 import { ChangeEvent, useContext, useState, MouseEvent } from 'react';
+import { StationToiletContext } from '../../contexts/station-toilet.context';
 import { StationsContext } from '../../contexts/stations.context';
 import { Station } from '../../interfaces/station.interface';
 import styles from './styles.module.css';
@@ -47,15 +48,29 @@ export function SearchForm() {
         onChange={handleOnChange}
       />
       <div className={styles['search-result']}>
-        {(filteredStations.length &&
-          filteredStations.map((station, index) => {
+        <StationToiletContext.Consumer>
+          {({ openModal, updateStationId }) => {
             return (
-              <div key={index} data-id={station.id} onClick={handleOnClick}>
-                {station.lineName} - {station.stationName}
-              </div>
+              (filteredStations.length &&
+                filteredStations.map((station, index) => {
+                  return (
+                    <div
+                      key={index}
+                      data-id={station.id}
+                      onClick={(e: MouseEvent<HTMLDivElement>) => {
+                        const element = e.target as HTMLDivElement;
+                        openModal();
+                        updateStationId(Number(element.dataset.id));
+                      }}
+                    >
+                      {station.lineName} - {station.stationName}
+                    </div>
+                  );
+                })) ||
+              undefined
             );
-          })) ||
-          undefined}
+          }}
+        </StationToiletContext.Consumer>
       </div>
     </div>
   );

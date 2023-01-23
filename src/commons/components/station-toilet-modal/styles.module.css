@@ -1,0 +1,47 @@
+.station-toilet-modal {
+  position: fixed;
+  top: 67px;
+  right: 0;
+  background: #fff;
+  width: 400px;
+  bottom: 0;
+  border-left: 1px solid #e5e5e5;
+  overflow-y: scroll;
+  display: none;
+}
+
+.station-toilet-modal.show {
+  display: block;
+}
+
+.station-toilet-modal > div {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.station-toilet-modal > div > div {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.station-toilet-modal > div > div > span:first-child {
+  width: 110px;
+  display: block;
+  text-align: right;
+  margin-right: 15px;
+  color: #666;
+}
+
+.close-icon {
+  cursor: pointer;
+  display: inline-block;
+  *display: inline;
+}
+
+.close-icon:after {
+  display: inline-block;
+  content: '\00d7';
+  font-size: 15pt;
+  color: #666;
+}
