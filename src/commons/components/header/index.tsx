@@ -30,12 +30,6 @@ export function SearchForm() {
     );
   };
 
-  const handleOnClick = (e: MouseEvent<HTMLDivElement>) => {
-    const element = e.target as HTMLDivElement;
-    const stationId = element.dataset.id;
-    console.log(stationId);
-  };
-
   return (
     <div className={styles['search-form']}>
       <label htmlFor="search-input">
@@ -58,12 +52,24 @@ export function SearchForm() {
                       key={index}
                       data-id={station.id}
                       onClick={(e: MouseEvent<HTMLDivElement>) => {
+                        if (!station.toiletCount) return;
                         const element = e.target as HTMLDivElement;
                         openModal();
                         updateStationId(Number(element.dataset.id));
                       }}
+                      className={
+                        !station.toiletCount ? styles['toilet-not-found'] : ''
+                      }
                     >
                       {station.lineName} - {station.stationName}
+                      {!station.toiletCount ? (
+                        <span className={styles['toilet-not-found-desc']}>
+                          {' '}
+                          화장실 정보 없음
+                        </span>
+                      ) : (
+                        ''
+                      )}
                     </div>
                   );
                 })) ||
