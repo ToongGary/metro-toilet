@@ -1,9 +1,9 @@
-import { SearchBar } from '../../commons/components/search-bar';
+import { Header } from '../../commons/components/header';
 
 export function Main() {
   return (
     <div>
-      <SearchBar></SearchBar>
+      <Header></Header>
       <div>Main Page</div>
     </div>
   );
